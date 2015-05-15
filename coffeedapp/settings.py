@@ -79,31 +79,20 @@ WSGI_APPLICATION = 'coffeedapp.wsgi.application'
 if ON_HEROKU == True:
     # Parse database configuration from $DATABASE_URL
     import dj_database_url
-
-
     DATABASES = {
         'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
     }
-
-
     #DATABASES['default'] =  dj_database_url.config()
 else:
      # Parse database configuration from $DATABASE_URL
     import dj_database_url
-    
-
-    DATABASES = {
-        'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-    }
-
-
    # DATABASES['default'] =  dj_database_url.config()
-    #DATABASES = {
-    #    'default': {
-    #        'ENGINE': 'django.db.backends.sqlite3',
-    #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    #    }
-    #}
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
