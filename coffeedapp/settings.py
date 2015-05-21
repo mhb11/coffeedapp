@@ -29,9 +29,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
+"django.core.context_processors.debug",
+"django.core.context_processors.i18n",
+"django.core.context_processors.media",
+"django.core.context_processors.static",
+"django.core.context_processors.tz",
+"django.contrib.messages.context_processors.messages",
+"django.core.context_processors.request"
+)
 
 # Application definition
-
+# To install an app into Django, use 'pip2 install' command, then add it here:
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +49,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'addattr',
+    'widget_tweaks',
+    'sitegate',
+    'bootstrap3',
+    'geoposition',
+    'bootstrap_pagination',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -132,8 +147,8 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_S3_FORCE_HTTP_URL = True
 AWS_QUERYSTRING_AUTH = False
 AWS_SECRET_ACCESS_KEY = os.environ.get('awssecretkey')
-print 'SECRET_KEY:',AWS_SECRET_ACCESS_KEY
+#print 'SECRET_KEY:',AWS_SECRET_ACCESS_KEY
 AWS_ACCESS_KEY_ID = os.environ.get('awsaccesskeyid')
-print 'ACCESS_KEY:',AWS_ACCESS_KEY_ID
+#print 'ACCESS_KEY:',AWS_ACCESS_KEY_ID
 
 AWS_STORAGE_BUCKET_NAME = 'mycoffeed'
